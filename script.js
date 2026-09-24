@@ -62,3 +62,52 @@ function toggleMenu() {
   } else {
     aplicarFiltro();
   }
+
+/* =====================================================
+   VOLTAR AO TOPO
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const backToTop =
+        document.getElementById("backToTop");
+
+    if (!backToTop) {
+        console.warn("Botão backToTop não encontrado.");
+        return;
+    }
+
+    function verificarBotaoTopo() {
+
+        if (window.scrollY > 300) {
+
+            backToTop.classList.add("show");
+
+        } else {
+
+            backToTop.classList.remove("show");
+
+        }
+    }
+
+    window.addEventListener(
+        "scroll",
+        verificarBotaoTopo,
+        { passive: true }
+    );
+
+    backToTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+    verificarBotaoTopo();
+
+});
