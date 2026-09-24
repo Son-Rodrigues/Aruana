@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .moments,
     .manifesto,
     .where,
+    // .product,
     .category,
     .moment,
     .place
