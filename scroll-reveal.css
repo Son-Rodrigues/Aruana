@@ -1,60 +1,149 @@
 /* =====================================================
-   SCROLL REVEAL
+   SCROLL REVEAL — ARUANÃ
 ===================================================== */
+
+/*
+   O elemento só recebe a animação quando o JS
+   adiciona a classe .scroll-reveal.
+*/
 
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(60px);
+
+    transform:
+        translateY(60px);
+
     transition:
-      opacity 0.8s ease,
-      transform 0.8s cubic-bezier(.22,1,.36,1);
-  }
-  
-  .scroll-reveal.visible {
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22, 1, .36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+/* =====================================================
+   ELEMENTO VISÍVEL
+===================================================== */
+
+.scroll-reveal.visible {
+
     opacity: 1;
-    transform: translateY(0);
-  }
-  
-  
-  /* =====================================================
-     ANIMAÇÃO MAIS SUAVE PARA SEÇÕES
-  ===================================================== */
-  
-  .about.scroll-reveal,
-  .categories.scroll-reveal,
-  .catalog.scroll-reveal,
-  .moments.scroll-reveal,
-  .manifesto.scroll-reveal,
-  .where.scroll-reveal {
-    transform: translateY(80px);
-  }
-  
-  
-  /* =====================================================
-     HOVER DOS CARDS
-  ===================================================== */
-  
-  .category,
-  .product,
-  .moment,
-  .place {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.about.scroll-reveal,
+.categories.scroll-reveal,
+.catalog.scroll-reveal,
+.moments.scroll-reveal,
+.manifesto.scroll-reveal,
+.where.scroll-reveal {
+
+    transform:
+        translateY(80px);
+
+}
+
+
+.about.scroll-reveal.visible,
+.categories.scroll-reveal.visible,
+.catalog.scroll-reveal.visible,
+.moments.scroll-reveal.visible,
+.manifesto.scroll-reveal.visible,
+.where.scroll-reveal.visible {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.category,
+.product,
+.moment,
+.place {
+
     transition:
-      transform 0.5s ease,
-      opacity 0.8s ease,
-      box-shadow 0.4s ease;
-  }
-  
-  
-  /* =====================================================
-     ACESSIBILIDADE
-  ===================================================== */
-  
-  @media (prefers-reduced-motion: reduce) {
-  
+        transform .5s ease,
+        opacity .8s ease,
+        box-shadow .4s ease;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
     .scroll-reveal {
-      opacity: 1;
-      transform: none;
-      transition: none;
+
+        transform:
+            translateY(35px);
+
+        transition:
+            opacity .7s ease,
+            transform .7s cubic-bezier(.22, 1, .36, 1);
+
     }
-  
-  }
+
+
+    .about.scroll-reveal,
+    .categories.scroll-reveal,
+    .catalog.scroll-reveal,
+    .moments.scroll-reveal,
+    .manifesto.scroll-reveal,
+    .where.scroll-reveal {
+
+        transform:
+            translateY(45px);
+
+    }
+
+
+    .about.scroll-reveal.visible,
+    .categories.scroll-reveal.visible,
+    .catalog.scroll-reveal.visible,
+    .moments.scroll-reveal.visible,
+    .manifesto.scroll-reveal.visible,
+    .where.scroll-reveal.visible {
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+    }
+
+}
