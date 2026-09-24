@@ -633,6 +633,46 @@
         font-size: .6rem;
         opacity: .6;
       }
+
+       /* =====================================================
+   ACESSO SECRETO — ADMIN
+===================================================== */
+
+       .admin-secret-link {
+           position: fixed;
+           bottom: 8px;
+           left: 8px;
+       
+           width: 10px;
+           height: 10px;
+       
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       
+           color: rgba(53, 35, 50, 0.08);
+           text-decoration: none;
+       
+           font-size: 8px;
+       
+           z-index: 9998;
+       
+           transition: all .3s ease;
+       }
+
+/* Só fica perceptível quando o mouse passa exatamente por cima */
+       .admin-secret-link:hover {
+           color: rgba(53, 35, 50, 0.65);
+           transform: scale(1.5);
+       }
+
+/* No celular continua acessível, mas discreto */
+       @media (max-width: 768px) {
+           .admin-secret-link {
+               bottom: 6px;
+               left: 6px;
+           }
+       }
   
       /* =========================================================
          11. RESPONSIVO
