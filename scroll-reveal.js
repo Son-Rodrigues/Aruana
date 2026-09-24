@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const grupos = [
     ".category-grid .category",
-    ".product-grid .product",
+    // ".product-grid .product",
     ".moment-grid .moment",
     ".places .place"
   ];
