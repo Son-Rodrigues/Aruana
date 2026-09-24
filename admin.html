@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Painel | Aruanã Natural</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4eee5;
+            color: #3c2632;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 40px auto;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #765d67;
+            margin-bottom: 30px;
+        }
+
+        .login,
+        .panel {
+            background: #fffaf3;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(60, 38, 50, .08);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #d8c8c1;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 10px;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #loginButton {
+            background: #542b45;
+            color: white;
+            width: 100%;
+        }
+
+        .feedback-card {
+            background: white;
+            border: 1px solid #eaded5;
+            border-radius: 18px;
+            padding: 22px;
+            margin-top: 18px;
+        }
+
+        .stars {
+            color: #b38a42;
+            font-size: 20px;
+            margin: 8px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .pendente {
+            background: #f4dfc4;
+        }
+
+        .aprovado {
+            background: #dce8d5;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .approve {
+            background: #5f7652;
+            color: white;
+        }
+
+        .delete {
+            background: #8b4050;
+            color: white;
+        }
+
+        .logout {
+            background: #ddd0ca;
+            color: #3c2632;
+            margin-bottom: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .message {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Painel Aruanã</h1>
+
+    <p class="subtitle">
+        Administração dos feedbacks dos clientes.
+    </p>
+
+
+    <!-- LOGIN -->
+
+    <div id="loginBox" class="login">
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Seu e-mail"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Sua senha"
+        >
+
+        <button id="loginButton">
+            ENTRAR
+        </button>
+
+        <div
+            id="loginMessage"
+            class="message"
+        ></div>
+
+    </div>
+
+
+    <!-- PAINEL -->
+
+    <div
+        id="adminPanel"
+        class="panel hidden"
+    >
+
+        <button
+            class="logout"
+            id="logoutButton"
+        >
+            SAIR
+        </button>
+
+        <div id="feedbackList"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://uyednawaykwiqotsnirw.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_DoLcx_-J3eJ7c1yVeIByIQ_ve4b3QT4";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const loginBox =
+    document.getElementById(
+        "loginBox"
+    );
+
+
+const adminPanel =
+    document.getElementById(
+        "adminPanel"
+    );
+
+
+const loginMessage =
+    document.getElementById(
+        "loginMessage"
+    );
+
+
+// =====================================================
+// VERIFICAR SE É ADMIN
+// =====================================================
+
+async function verificarAdministrador() {
+
+    const {
+        data: {
+            user
+        }
+    } =
+        await supabaseClient
+            .auth
+            .getUser();
+
+
+    if (!user) {
+
+        mostrarLogin();
+
+        return false;
+    }
+
+
+    const {
+        data: admin,
+        error
+    } =
+        await supabaseClient
+            .from("admins")
+            .select("user_id")
+            .eq(
+                "user_id",
+                user.id
+            )
+            .maybeSingle();
+
+
+    if (
+        error ||
+        !admin
+    ) {
+
+        await supabaseClient
+            .auth
+            .signOut();
+
+        mostrarLogin();
+
+        return false;
+    }
+
+
+    mostrarPainel();
+
+    return true;
+}
+
+
+// =====================================================
+// MOSTRAR LOGIN
+// =====================================================
+
+function mostrarLogin() {
+
+    loginBox.classList.remove(
+        "hidden"
+    );
+
+    adminPanel.classList.add(
+        "hidden"
+    );
+}
+
+
+// =====================================================
+// MOSTRAR PAINEL
+// =====================================================
+
+function mostrarPainel() {
+
+    loginBox.classList.add(
+        "hidden"
+    );
+
+    adminPanel.classList.remove(
+        "hidden"
+    );
+
+    carregarFeedbacksAdmin();
+}
+
+
+// =====================================================
+// LOGIN
+// =====================================================
+
+document
+    .getElementById(
+        "loginButton"
+    )
+    .addEventListener(
+        "click",
+        async () => {
+
+            const email =
+                document
+                    .getElementById(
+                        "email"
+                    )
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "password"
+                    )
+                    .value;
+
+
+            loginMessage.textContent =
+                "Entrando...";
+
+
+            const {
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .signInWithPassword({
+
+                        email,
+
+                        password
+
+                    });
+
+
+            if (error) {
+
+                console.error(
+                    error
+                );
+
+                loginMessage.textContent =
+                    "E-mail ou senha incorretos.";
+
+                return;
+            }
+
+
+            const autorizado =
+                await verificarAdministrador();
+
+
+            if (!autorizado) {
+
+                loginMessage.textContent =
+                    "Esta conta não possui acesso administrativo.";
+
+            }
+
+        }
+    );
+
+
+// =====================================================
+// CARREGAR FEEDBACKS
+// =====================================================
+
+async function carregarFeedbacksAdmin() {
+
+    const container =
+        document.getElementById(
+            "feedbackList"
+        );
+
+
+    container.innerHTML =
+        "<p>Carregando feedbacks...</p>";
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from("feedbacks")
+            .select("*")
+            .order(
+                "criado_em",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar feedbacks:",
+            error
+        );
+
+        container.innerHTML = `
+            <p>
+                Erro ao carregar os feedbacks.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    if (
+        !data ||
+        data.length === 0
+    ) {
+
+        container.innerHTML = `
+            <p>
+                Nenhum feedback recebido ainda.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.forEach(feedback => {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "feedback-card";
+
+
+        const nome =
+            document.createElement(
+                "h3"
+            );
+
+        nome.textContent =
+            feedback.nome;
+
+
+        const stars =
+            document.createElement(
+                "div"
+            );
+
+        stars.className =
+            "stars";
+
+        stars.textContent =
+            "★".repeat(
+                feedback.avaliacao
+            ) +
+            "☆".repeat(
+                5 - feedback.avaliacao
+            );
+
+
+        const mensagem =
+            document.createElement(
+                "p"
+            );
+
+        mensagem.textContent =
+            feedback.mensagem;
+
+
+        const status =
+            document.createElement(
+                "span"
+            );
+
+        status.className =
+            `status ${feedback.status}`;
+
+        status.textContent =
+            feedback.status === "aprovado"
+                ? "APROVADO"
+                : "PENDENTE";
+
+
+        const actions =
+            document.createElement(
+                "div"
+            );
+
+        actions.className =
+            "actions";
+
+
+        if (
+            feedback.status !==
+            "aprovado"
+        ) {
+
+            const approve =
+                document.createElement(
+                    "button"
+                );
+
+            approve.className =
+                "approve";
+
+            approve.textContent =
+                "APROVAR";
+
+
+            approve.onclick =
+                () =>
+                    aprovarFeedback(
+                        feedback.id
+                    );
+
+
+            actions.appendChild(
+                approve
+            );
+
+        }
+
+
+        const remove =
+            document.createElement(
+                "button"
+            );
+
+        remove.className =
+            "delete";
+
+        remove.textContent =
+            "EXCLUIR";
+
+
+        remove.onclick =
+            () =>
+                excluirFeedback(
+                    feedback.id
+                );
+
+
+        actions.appendChild(
+            remove
+        );
+
+
+        card.appendChild(nome);
+
+        card.appendChild(stars);
+
+        card.appendChild(mensagem);
+
+        card.appendChild(status);
+
+        card.appendChild(actions);
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+// =====================================================
+// APROVAR
+// =====================================================
+
+async function aprovarFeedback(id) {
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("feedbacks")
+            .update({
+                status: "aprovado"
+            })
+            .eq(
+                "id",
+                id
+            );
+
+
+    if (error) {
+
+        console.error(
+            error
+        );
+
+        alert(
+            "Não foi possível aprovar o feedback."
+        );
+
+        return;
+    }
+
+
+    carregarFeedbacksAdmin();
+}
+
+
+// =====================================================
+// EXCLUIR
+// =====================================================
+
+async function excluirFeedback(id) {
+
+    const confirmar =
+        confirm(
+            "Tem certeza que deseja excluir este feedback?"
+        );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("feedbacks")
+            .delete()
+            .eq(
+                "id",
+                id
+            );
+
+
+    if (error) {
+
+        console.error(
+            error
+        );
+
+        alert(
+            "Não foi possível excluir o feedback."
+        );
+
+        return;
+    }
+
+
+    carregarFeedbacksAdmin();
+}
+
+
+// =====================================================
+// SAIR
+// =====================================================
+
+document
+    .getElementById(
+        "logoutButton"
+    )
+    .addEventListener(
+        "click",
+        async () => {
+
+            await supabaseClient
+                .auth
+                .signOut();
+
+            mostrarLogin();
+
+        }
+    );
+
+
+// =====================================================
+// IMPORTANTE:
+// RESTAURAR PAINEL AO ATUALIZAR
+// =====================================================
+
+verificarAdministrador();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s cubic-bezier(.22,1,.36,1);
+  }
+  
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  /* =====================================================
+     ANIMAÇÃO MAIS SUAVE PARA SEÇÕES
+  ===================================================== */
+  
+  .about.scroll-reveal,
+  .categories.scroll-reveal,
+  .catalog.scroll-reveal,
+  .moments.scroll-reveal,
+  .manifesto.scroll-reveal,
+  .where.scroll-reveal {
+    transform: translateY(80px);
+  }
+  
+  
+  /* =====================================================
+     HOVER DOS CARDS
+  ===================================================== */
+  
+  .category,
+  .product,
+  .moment,
+  .place {
+    transition:
+      transform 0.5s ease,
+      opacity 0.8s ease,
+      box-shadow 0.4s ease;
+  }
+  
+  
+  /* =====================================================
+     ACESSIBILIDADE
+  ===================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+  
+    .scroll-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  
+  }

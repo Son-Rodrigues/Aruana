@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aruanã Natural — velas, aromas, banhos e cuidados artesanais.">
+  <title>Aruanã Natural | Natureza para silenciar o caos interno</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scroll-reveal.css">
+  <link rel="stylesheet" href="abertura.css">
+  <link rel="stylesheet" href="feedback.css">
+  <script src="script.js" defer></script>
+  <script src="scroll-reveal.js" defer></script>
+  <script src="abertura.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =====================================================
+     TELA DE ABERTURA — ARUANÃ
+===================================================== -->
+
+  <div id="splash-screen">
+    <div class="splash-logo">
+      <div class="splash-moon">☾</div>
+  
+      <div class="splash-name">
+        ARUANÃ
+      </div>
+  
+      <div class="splash-subtitle">
+        NATURAL
+      </div>
+  
+      <div class="splash-line"></div>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       PARTE 01 — MENU
+  ======================================================== -->
+  <header>
+    <nav class="nav">
+      <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+
+      <a href="#inicio" class="logo-mini">ARUANÃ</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">A Aruanã</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#momentos">Rituais</a>
+        <a href="#feedback">Feedbacks</a>
+      </div>
+
+      <div class="nav-icons">
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="WhatsApp">◉</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =======================================================
+       PARTE 02 — HERO
+  ======================================================== -->
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="moon">☾</div>
+        <div class="brand">ARUANÃ</div>
+        <div class="brand-small">Natural</div>
+
+        <p class="hero-copy">
+          Natureza para silenciar<br>
+          o caos interno.
+        </p>
+
+        <div class="buttons">
+          <a href="#sobre" class="btn btn-primary">Conheça a Aruanã</a>
+          <a href="#produtos" class="btn">Ver produtos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 03 — SOBRE
+    ====================================================== -->
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-text">
+          <div class="eyebrow">A Aruanã</div>
+          <h2 class="section-title">Pequenos momentos.<br>Grandes rituais.</h2>
+
+          <p>
+            A Aruanã nasceu do desejo de transformar pequenos momentos
+            em rituais de cuidado. Velas, aromas, banhos e criações
+            artesanais feitas para presença, aconchego e um pouco de
+            magia para a rotina.
+          </p>
+        </div>
+
+        <div class="illustration">
+            <img
+              src="images/illustration.jpeg"
+              alt="Imagem da Aruanã"
+            >
+        </div>
+
+        <!-- <div class="illustration" aria-label="Ilustração decorativa da Aruanã"></div> -->
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 04 — CATEGORIAS
+    ====================================================== -->
+    <section class="categories">
+      <div class="container">
+        <div class="center-heading">
+          <div class="eyebrow">Explore</div>
+          <h2 class="section-title">Categorias</h2>
+          <p class="section-subtitle">Explore o que te chama no momento.</p>
+        </div>
+
+        <div class="category-grid">
+            <a class="category" href="#produtos" data-category-target="velas" style="--bg:url('images/categoria-velas.jpeg')">
+              <div class="category-content">
+                <span>01</span>
+                <h3>Velas Aromáticas</h3>
+              </div>
+            </a>
+          
+            <a class="category" href="#produtos" data-category-target="massagem" style="--bg:url('images/categoria-massagem.png')">
+              <div class="category-content">
+                <span>02</span>
+                <h3>Velas de Massagem</h3>
+              </div>
+            </a>
+          
+            <a class="category" href="#produtos" data-category-target="velas" style="--bg:url('images/categoria-aromas.jpeg')">
+              <div class="category-content">
+                <span>03</span>
+                <h3>Velas Decorativas</h3>
+              </div>
+            </a>
+          
+            <a class="category" href="#produtos" data-category-target="banhos" style="--bg:url('images/categoria-banho.jpeg')">
+              <div class="category-content">
+                <span>04</span>
+                <h3>Sabonetes Artesanais</h3>
+              </div>
+            </a>
+          
+            <a class="category" href="#produtos" data-category-target="corpo" style="--bg:url('images/categoria-corpo.png')">
+              <div class="category-content">
+                <span>05</span>
+                <h3>Kits</h3>
+              </div>
+            </a>
+          
+            <a class="category" href="#produtos" data-category-target="especiais" style="--bg:url('images/categoria-especiais.png')">
+              <div class="category-content">
+                <span>06</span>
+                <h3>Coleções Especiais</h3>
+              </div>
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 05 — CATÁLOGO
+    ====================================================== -->
+    <section class="catalog" id="produtos">
+      <div class="container">
+        <div class="center-heading">
+          <div class="eyebrow">Nossa coleção</div>
+          <h2 class="section-title">Nosso catálogo</h2>
+          <p class="section-subtitle">Escolha o que faz sentido para você.</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter active" data-filter="todos">Todas</button>
+            <button class="filter" data-filter="velas">Velas</button>
+            <button class="filter" data-filter="massagem">Massagem</button>
+            <button class="filter" data-filter="aromas">Aromas</button>
+            <button class="filter" data-filter="banhos">Banhos</button>
+            <button class="filter" data-filter="corpo">Corpo</button>
+            <button class="filter" data-filter="especiais">Especiais</button>
+        </div>
+
+        <div class="product-grid">
+
+          <article class="product" data-category="velas aromas">
+            <div class="product-image">
+                <img src="images/vela-mandala.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Mandala</h3>
+              <p>Feita com <b>cera de coco e óleo de aromaterapia</b>, para perfumar o ambiente com suavidade e criar uma atmosfera acolhedora e relaxante.</p>
+              <div class="price">R$ 85,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Lavanda.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="especiais">
+            <div class="product-image">
+                <img src="images/kit-tematico.jpeg" alt="" >
+            </div>
+            <div class="product-body">
+              <h3>Kit Temático</h3>
+              <p><b>Kit Escalda-Pés</b>, com óleo de semente de uva, uma vela misteriosa em lata e um brinde temático de Harry Potter para tornar seu momento de relaxamento ainda mais especial.</p>
+              <div class="price">R$ 69,99</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Lavanda.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="massagem kit corpo">
+            <div class="product-image">
+                <img src="images/kit-massagem.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Kit Massagem</h3>
+              <p><b>Kit Relaxante</b>, com vela de massagem, sabonete de massagem e escalda-pés para proporcionar um momento completo de cuidado, relaxamento e bem-estar.</p>
+              <div class="price">R$ 99,99</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20de%20Massagem.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="velas especiais">
+            <div class="product-image">
+                <img src="images/vela-eclipse.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Eclipse</h3>
+              <p><b>Vela decorativa Sol e Lua</b>, produzida com cera vegetal e sem aroma, perfeita para trazer charme, personalidade e um toque místico à decoração.</p>
+              <div class="price">R$ 35,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20Óleos%20Essenciais.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="banhos corpo aromas">
+            <div class="product-image">
+                <img src="images/sabonete-floral.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Sabonete Floral</h3>
+              <p><b>Sabonete floral</b> com glicerina vegetal, óleos de aromaterapia, óleo de louro e óleo de coco, para uma limpeza suave e uma experiência perfumada e acolhedora.</p>
+              <div class="price">R$ 15,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Escalda-pés.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="valas especiais aromas">
+            <div class="product-image">
+                <img src="images/colecao-deusas.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vala Deusas (Nike)</h3>
+              <p><b>Vela Deusas</b>, feita com cera de coco, aroma surpresa e tampa personalizada artesanalmente com fogo.</p>
+              <div class="price">R$ 70,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Body%20Splash%20Lavanda.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="corpo">
+            <div class="product-image">
+                <img src="images/oleo-de-uva.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Óleo de Semante de Uva</h3>
+              <p><b>Óleo vegetal de semente de uva</b>, conhecido por sua textura leve e propriedades hidratantes, deixando a pele macia e nutrida.</p>
+              <div class="price">R$ 35,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="vela aromas">
+            <div class="product-image">
+                <img src="images/vela-jardim-secreto.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Jardim Secreto</h3>
+              <p><b>Aroma Floral Jardim Secreto</b>, feito com cera de coco e óleo de aromaterapia para trazer delicadeza, frescor e uma sensação de aconchego ao ambiente.</p>
+              <div class="price">R$ 60,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="valas massagem corpo">
+            <div class="product-image">
+                <img src="images/vela-massagem.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela de Massagem </h3>
+              <p><b>Vela de massagem</b> com óleo de aromaterapia, manteiga de karité, cera de soja e óleo de semente de uva, para uma experiência relaxante e uma pele macia e hidratada.</p>
+              <div class="price">R$ 75,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="especiais velas aromas">
+            <div class="product-image">
+                <img src="images/vela-hp.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Harry Potter</h3>
+              <p><b>Aroma surpresa</b> e uma experiência diferente a cada edição.</p>
+              <div class="price">R$ 75,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="velas aromas">
+            <div class="product-image">
+                <img src="images/vela-latinha.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Latinha</h3>
+              <p><b>Aroma surpresa</b>.</p>
+              <div class="price">R$ 15,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="product" data-category="velas especiais">
+            <div class="product-image">
+                <img src="images/vela-sereia.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Sereia</h3>
+              <p><b>Vela decorativa</b> inspirada no arqueotipo da sereia.</p>
+              <div class="price">R$ 50,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Vela%20Surpresa.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 06 — MOMENTOS / RITUAIS
+    ====================================================== -->
+    <section class="moments" id="momentos">
+      <div class="container">
+        <div class="center-heading">
+          <div class="eyebrow">Escolha seu momento</div>
+          <h2 class="section-title">Qual energia você quer<br>atrair hoje?</h2>
+        </div>
+
+        <div class="moment-grid">
+          <article class="moment" style="--bg:url('images/momento-desacelerar.jpg')">
+            <div class="moment-content">
+              <h3>Arquétipo do Eclipse </h3>
+              <p>Tranformação, encerramento de ciclos e renascimento na própria sombra</p>
+              <a href="#produtos">Ver produtos →</a>
+            </div>
+          </article>
+
+          <article class="moment" style="--bg:url('images/momento-renovar.jpg')">
+            <div class="moment-content">
+              <h3>Arquétipo da Sereia</h3>
+              <p>Profundidade, mistério e liberdade para ser quem é</p>
+              <a href="#produtos">Ver produtos →</a>
+            </div>
+          </article>
+
+          <article class="moment" style="--bg:url('images/momento-acolher.jpg')">
+            <div class="moment-content">
+              <h3>Arquétipo da Bruxa </h3>
+              <p>Natureza, mistério e a magia de tranformar o seu cotidiano em ritual</p>
+              <a href="#produtos">Ver produtos →</a>
+            </div>
+          </article>
+
+          <article class="moment" style="--bg:url('images/momento-energizar.jpg')">
+            <div class="moment-content">
+              <h3>Arquétipo da Sacerdotisa</h3>
+              <p>Intuição, silencio, e a conexão com aquilo que vive dentro de si. </p>
+              <a href="#produtos">Ver produtos →</a>
+            </div>
+          </article>
+
+          <article class="moment" style="--bg:url('images/momento-cuidar.jpg')">
+            <div class="moment-content">
+              <h3>Arquétipo da Deusa</h3>
+              <p>Feminilidade, beleza, criação e poder interior </p>
+              <a href="#produtos">Ver produtos →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE 07 — MANIFESTO
+    ====================================================== -->
+    <section class="manifesto">
+      <div class="container manifesto-inner">
+        <div class="eyebrow">A experiência Aruanã</div>
+        <h2>Mais que produtos,<br>são experiências.</h2>
+        <p>
+          Cada detalhe é pensado para te conectar com o que te faz bem,
+          com a natureza e com a sua própria energia.
+        </p>
+        <div class="moon" style="margin-top:25px;color:var(--wine)">☾</div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARTE EXTRA — FEEDBACK
+    ====================================================== -->
+
+    <section class="feedback-section" id="feedback">
+        <div class="feedback-header">
+          <span class="section-label">SUA EXPERIÊNCIA</span>
+            <h2>
+                O que você sentiu?
+            </h2>
+            <p>
+                Cada experiência com a Aruanã é única.
+                Conte para nós como foi o seu momento.
+            </p>
+        </div>
+
+        <div class="feedback-container">
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedbackName">
+                        Seu nome
+                    </label>
+                    <input
+                        type="text"
+                        id="feedbackName"
+                        placeholder="Como podemos te chamar?"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label>
+                        Como foi sua experiência?
+                    </label>
+                    <div class="stars" id="stars">
+                        <button type="button" data-rating="1">★</button>
+                        <button type="button" data-rating="2">★</button>
+                        <button type="button" data-rating="3">★</button>
+                        <button type="button" data-rating="4">★</button>
+                        <button type="button" data-rating="5">★</button>
+                    </div>
+                    <input
+                        type="hidden"
+                        id="rating"
+                        value="0"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="feedbackMessage">
+                        Seu feedback
+                    </label>
+                    <textarea
+                        id="feedbackMessage"
+                        rows="5"
+                        placeholder="Conte como foi sua experiência com a Aruanã..."
+                        required
+                        maxlength="150"
+                    ></textarea>
+                </div>
+                <button
+                    type="submit"
+                    class="feedback-button"
+                >
+                    Enviar meu feedback
+                </button>
+                <p
+                    class="feedback-success"
+                    id="feedbackSuccess"
+                >
+                    ✦ Obrigado por compartilhar sua experiência.
+                </p>
+            </form>
+            <div class="feedback-message">
+
+                <span class="moon-symbol">☾</span>
+                <h3>
+                    Sua experiência<br>
+                    também faz parte<br>
+                    da Aruanã.
+                </h3>
+                <p>
+                    Pequenos momentos podem significar muito.
+                    Obrigado por permitir que a Aruanã faça
+                    parte deles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="avaliacoes">
+
+    <div class="reviews-header">
+
+        <span>
+            QUEM VIVEU A EXPERIÊNCIA
+        </span>
+
+        <h2>
+            Histórias que ficam.
+        </h2>
+
+        <p>
+            Cada palavra compartilhada carrega
+            um pedacinho da experiência Aruanã.
+        </p>
+
+    </div>
+
+
+    <div
+        id="reviewsContainer"
+        class="reviews-container"
+    >
+
+        <div class="reviews-empty">
+
+            <span>☾</span>
+
+            <p>
+                Carregando experiências...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =====================================================
+         PARTE 08 — ONDE ENCONTRAR
+    ====================================================== -->
+    <!-- <section class="where" id="onde">
+      <div class="container">
+        <div class="center-heading">
+          <div class="eyebrow">Aruanã por aí</div>
+          <h2 class="section-title">Onde encontrar</h2>
+        </div>
+
+        <div class="places">
+          <article class="place">
+            <div class="place-icon">⌖</div>
+            <h3>São Lourenço</h3>
+            <p>Centro — entregas grátis via mototáxi</p>
+          </article>
+
+          <article class="place">
+            <div class="place-icon">◆</div>
+            <h3>Soledade</h3>
+            <p>Feiras e parceiros</p>
+          </article>
+
+          <article class="place">
+            <div class="place-icon">▦</div>
+            <h3>Feiras</h3>
+            <p>Praça Brasil<br>Quia e Dom — 9h às 22h</p>
+          </article>
+
+          <article class="place">
+            <div class="place-icon">♧</div>
+            <h3>Outros parceiros</h3>
+            <p>Casa dos Fontes · Apiário Flor de Mel · Maniature La Verde</p>
+          </article>
+        </div>
+      </div>
+    </section> -->
+  </main>
+
+  <!-- =======================================================
+       PARTE 09 — FOOTER
+  ======================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">ARUANÃ</div>
+      <div class="footer-tagline">Natureza para silenciar o caos interno.</div>
+
+      <div class="footer-links">
+        <a href="https://www.instagram.com/aruana_natural/">Instagram</a>
+        <a href="https://wa.me/5521979862089?text=Olá!">WhatsApp</a>
+        <!-- <a href="#">Shopee</a> -->
+      </div>
+
+      <div class="copyright">
+        © 2026 Aruanã Natural · Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
