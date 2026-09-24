@@ -67,34 +67,31 @@ function toggleMenu() {
    VOLTAR AO TOPO
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+const backToTop =
+    document.getElementById("backToTop");
 
-    const backToTop =
-        document.getElementById("backToTop");
-
-    if (!backToTop) {
-        console.warn("Botão backToTop não encontrado.");
-        return;
-    }
-
-    function verificarBotaoTopo() {
-
-        if (window.scrollY > 300) {
-
-            backToTop.classList.add("show");
-
-        } else {
-
-            backToTop.classList.remove("show");
-
-        }
-    }
+if (backToTop) {
 
     window.addEventListener(
         "scroll",
-        verificarBotaoTopo,
-        { passive: true }
+        () => {
+
+            if (window.scrollY > 500) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        },
+        {
+            passive: true
+        }
     );
+
 
     backToTop.addEventListener(
         "click",
@@ -108,6 +105,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    verificarBotaoTopo();
-
-});
+}
