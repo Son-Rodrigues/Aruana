@@ -1,0 +1,119 @@
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4eee5;
+            color: #3c2632;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 40px auto;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #765d67;
+            margin-bottom: 30px;
+        }
+
+        .login,
+        .panel {
+            background: #fffaf3;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(60, 38, 50, .08);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #d8c8c1;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 10px;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #loginButton {
+            background: #542b45;
+            color: white;
+            width: 100%;
+        }
+
+        .feedback-card {
+            background: white;
+            border: 1px solid #eaded5;
+            border-radius: 18px;
+            padding: 22px;
+            margin-top: 18px;
+        }
+
+        .stars {
+            color: #b38a42;
+            font-size: 20px;
+            margin: 8px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .pendente {
+            background: #f4dfc4;
+        }
+
+        .aprovado {
+            background: #dce8d5;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .approve {
+            background: #5f7652;
+            color: white;
+        }
+
+        .delete {
+            background: #8b4050;
+            color: white;
+        }
+
+        .logout {
+            background: #ddd0ca;
+            color: #3c2632;
+            margin-bottom: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .message {
+            margin-top: 12px;
+            font-weight: bold;
+        }

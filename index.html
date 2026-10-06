@@ -9,16 +9,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="scroll-reveal.css">
-  <link rel="stylesheet" href="abertura.css">
-  <link rel="stylesheet" href="feedback.css">
-  <link rel="stylesheet" href="floating-button.css">
-  <script src="script.js" defer></script>
-  <script src="scroll-reveal.js" defer></script>
-  <script src="abertura.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+  <link rel="stylesheet" href="assets/css/abertura.css">
+  <link rel="stylesheet" href="assets/css/feedback.css">
+  <link rel="stylesheet" href="assets/css/floating-button.css">
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/scroll-reveal.js" defer></script>
+  <script src="assets/js/abertura.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase.js" defer></script>
+  <script src="assets/js/supabase.js" defer></script>
 </head>
 
 <body>
@@ -108,7 +108,7 @@
 
         <div class="illustration">
             <img
-              src="images/illustration.jpeg"
+              src="assets/images/illustration.jpeg"
               alt="Imagem da Aruanã"
             >
         </div>
@@ -129,42 +129,48 @@
         </div>
 
         <div class="category-grid">
-            <a class="category" href="#produtos" data-category-target="velas" style="--bg:url('images/categoria-velas.jpeg')">
+            <a class="category" href="#produtos" data-category-target="velas">
+              <img class="category-bg" src="assets/images/categoria-velas.jpeg" alt="Velas aromáticas">
               <div class="category-content">
                 <span>01</span>
                 <h3>Velas Aromáticas</h3>
               </div>
             </a>
           
-            <a class="category" href="#produtos" data-category-target="massagem" style="--bg:url('images/categoria-massagem.png')">
+            <a class="category" href="#produtos" data-category-target="massagem">
+              <img class="category-bg" src="assets/images/categoria-massagem.png" alt="Velas de massagem">
               <div class="category-content">
                 <span>02</span>
                 <h3>Velas de Massagem</h3>
               </div>
             </a>
           
-            <a class="category" href="#produtos" data-category-target="velas" style="--bg:url('images/categoria-aromas.jpeg')">
+            <a class="category" href="#produtos" data-category-target="velas">
+              <img class="category-bg" src="assets/images/categoria-aromas.jpeg" alt="Velas decorativas">
               <div class="category-content">
                 <span>03</span>
                 <h3>Velas Decorativas</h3>
               </div>
             </a>
           
-            <a class="category" href="#produtos" data-category-target="banhos" style="--bg:url('images/categoria-banho.jpeg')">
+            <a class="category" href="#produtos" data-category-target="banhos">
+              <img class="category-bg" src="assets/images/categoria-banho.jpeg" alt="Sabonetes artesanais">
               <div class="category-content">
                 <span>04</span>
                 <h3>Sabonetes Artesanais</h3>
               </div>
             </a>
           
-            <a class="category" href="#produtos" data-category-target="corpo" style="--bg:url('images/categoria-corpo.png')">
+            <a class="category" href="#produtos" data-category-target="corpo">
+              <img class="category-bg" src="assets/images/categoria-corpo.png" alt="Kits de cuidados">
               <div class="category-content">
                 <span>05</span>
                 <h3>Kits</h3>
               </div>
             </a>
           
-            <a class="category" href="#produtos" data-category-target="especiais" style="--bg:url('images/categoria-especiais.png')">
+            <a class="category" href="#produtos" data-category-target="especiais">
+              <img class="category-bg" src="assets/images/categoria-especiais.png" alt="Coleções especiais">
               <div class="category-content">
                 <span>06</span>
                 <h3>Coleções Especiais</h3>
@@ -199,7 +205,7 @@
 
           <article class="product" data-category="velas aromas">
             <div class="product-image">
-                <img src="images/vela-mandala.jpeg" alt="">
+                <img src="assets/images/vela-mandala.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela Mandala</h3>
@@ -214,7 +220,7 @@
 
           <article class="product" data-category="especiais">
             <div class="product-image">
-                <img src="images/kit-tematico.jpeg" alt="" >
+                <img src="assets/images/kit-tematico.jpeg" alt="" >
             </div>
             <div class="product-body">
               <h3>Kit Temático</h3>
@@ -229,27 +235,12 @@
 
           <article class="product" data-category="massagem kit corpo">
             <div class="product-image">
-                <img src="images/kit-massagem.jpeg" alt="">
+                <img src="assets/images/kit-massagem.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Kit Massagem</h3>
               <p><b>Kit Relaxante</b>, com vela de massagem, sabonete de massagem e escalda-pés para proporcionar um momento completo de cuidado, relaxamento e bem-estar.</p>
               <div class="price">R$ 99,99</div>
-              <a class="product-btn" target="_blank"
-                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20Aruanã..">
-                Quero esse produto ↗
-              </a>
-            </div>
-          </article>
-
-          <article class="product" data-category="velas especiais">
-            <div class="product-image">
-                <img src="images/vela-eclipse.jpeg" alt="">
-            </div>
-            <div class="product-body">
-              <h3>Vela Eclipse</h3>
-              <p><b>Vela decorativa Sol e Lua</b>, produzida com cera vegetal e sem aroma, perfeita para trazer charme, personalidade e um toque místico à decoração.</p>
-              <div class="price">R$ 35,00</div>
               <a class="product-btn" target="_blank"
                  href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20Aruanã.">
                 Quero esse produto ↗
@@ -257,9 +248,24 @@
             </div>
           </article>
 
+          <article class="product" data-category="velas especiais">
+            <div class="product-image">
+                <img src="assets/images/vela-eclipse.jpeg" alt="">
+            </div>
+            <div class="product-body">
+              <h3>Vela Eclipse</h3>
+              <p><b>Vela decorativa Sol e Lua</b>, produzida com cera vegetal e sem aroma, perfeita para trazer charme, personalidade e um toque místico à decoração.</p>
+              <div class="price">R$ 35,00</div>
+              <a class="product-btn" target="_blank"
+                 href="https://wa.me/5521979862089?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20Óleos%20Essenciais.">
+                Quero esse produto ↗
+              </a>
+            </div>
+          </article>
+
           <article class="product" data-category="banhos corpo aromas">
             <div class="product-image">
-                <img src="images/sabonete-floral.jpeg" alt="">
+                <img src="assets/images/sabonete-floral.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Sabonete Floral</h3>
@@ -274,7 +280,7 @@
 
           <article class="product" data-category="valas especiais aromas">
             <div class="product-image">
-                <img src="images/colecao-deusas.jpeg" alt="">
+                <img src="assets/images/colecao-deusas.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vala Deusas (Nike)</h3>
@@ -289,7 +295,7 @@
 
           <article class="product" data-category="corpo">
             <div class="product-image">
-                <img src="images/oleo-de-uva.jpeg" alt="">
+                <img src="assets/images/oleo-de-uva.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Óleo de Semante de Uva</h3>
@@ -304,7 +310,7 @@
 
           <article class="product" data-category="vela aromas">
             <div class="product-image">
-                <img src="images/vela-jardim-secreto.jpeg" alt="">
+                <img src="assets/images/vela-jardim-secreto.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela Jardim Secreto</h3>
@@ -319,7 +325,7 @@
 
           <article class="product" data-category="valas massagem corpo">
             <div class="product-image">
-                <img src="images/vela-massagem.jpeg" alt="">
+                <img src="assets/images/vela-massagem.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela de Massagem </h3>
@@ -334,7 +340,7 @@
 
           <article class="product" data-category="especiais velas aromas">
             <div class="product-image">
-                <img src="images/vela-hp.jpeg" alt="">
+                <img src="assets/images/vela-hp.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela Harry Potter</h3>
@@ -349,7 +355,7 @@
 
           <article class="product" data-category="velas aromas">
             <div class="product-image">
-                <img src="images/vela-latinha.jpeg" alt="">
+                <img src="assets/images/vela-latinha.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela Latinha</h3>
@@ -364,7 +370,7 @@
 
           <article class="product" data-category="velas especiais">
             <div class="product-image">
-                <img src="images/vela-sereia.jpeg" alt="">
+                <img src="assets/images/vela-sereia.jpeg" alt="">
             </div>
             <div class="product-body">
               <h3>Vela Sereia</h3>
@@ -392,7 +398,8 @@
         </div>
 
         <div class="moment-grid">
-          <article class="moment" style="--bg:url('images/momento-desacelerar.jpg')">
+          <article class="moment">
+            <img class="moment-bg" src="assets/images/momento-desacelerar.jpg" alt="Ritual para desacelerar" loading="lazy">
             <div class="moment-content">
               <h3>Arquétipo do Eclipse </h3>
               <p>Tranformação, encerramento de ciclos e renascimento na própria sombra</p>
@@ -400,7 +407,8 @@
             </div>
           </article>
 
-          <article class="moment" style="--bg:url('images/momento-renovar.jpg')">
+          <article class="moment">
+            <img class="moment-bg" src="assets/images/momento-renovar.jpg" alt="Ritual para renovar" loading="lazy">
             <div class="moment-content">
               <h3>Arquétipo da Sereia</h3>
               <p>Profundidade, mistério e liberdade para ser quem é</p>
@@ -408,7 +416,8 @@
             </div>
           </article>
 
-          <article class="moment" style="--bg:url('images/momento-acolher.jpg')">
+          <article class="moment">
+            <img class="moment-bg" src="assets/images/momento-acolher.jpg" alt="Ritual de acolhimento" loading="lazy">
             <div class="moment-content">
               <h3>Arquétipo da Bruxa </h3>
               <p>Natureza, mistério e a magia de tranformar o seu cotidiano em ritual</p>
@@ -416,7 +425,8 @@
             </div>
           </article>
 
-          <article class="moment" style="--bg:url('images/momento-energizar.jpg')">
+          <article class="moment">
+            <img class="moment-bg" src="assets/images/momento-energizar.jpg" alt="Ritual para energizar" loading="lazy">
             <div class="moment-content">
               <h3>Arquétipo da Sacerdotisa</h3>
               <p>Intuição, silencio, e a conexão com aquilo que vive dentro de si. </p>
@@ -424,7 +434,8 @@
             </div>
           </article>
 
-          <article class="moment" style="--bg:url('images/momento-cuidar.jpg')">
+          <article class="moment">
+            <img class="moment-bg" src="assets/images/momento-cuidar.jpg" alt="Ritual de autocuidado" loading="lazy">
             <div class="moment-content">
               <h3>Arquétipo da Deusa</h3>
               <p>Feminilidade, beleza, criação e poder interior </p>
@@ -637,28 +648,28 @@
   </footer>
 
   <!-- BOTÕES FLUTUANTES -->
-  <a
-      id="whatsappButton"
-      class="floating-button whatsapp-button"
-      href="https://wa.me/5521979862089?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruan%C3%A3%20Natural%20e%20gostaria%20de%20conhecer%20os%20produtos."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Falar com a Aruanã Natural pelo WhatsApp"
-      title="Falar pelo WhatsApp"
-  >
-      <span>☏</span>
-  </a>
+    <a
+        id="whatsappButton"
+        class="floating-button whatsapp-button"
+        href="https://wa.me/5521979862089?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruan%C3%A3%20Natural%20e%20gostaria%20de%20conhecer%20os%20produtos."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com a Aruanã Natural pelo WhatsApp"
+        title="Falar pelo WhatsApp"
+    >
+        <span>☏</span>
+    </a>
 
-  <button
+    <button
     id="backToTop"
     class="floating-button back-to-top"
     type="button"
     aria-label="Voltar ao topo"
   >
       ↑
-  </button>
+    </button>
 
-  <!-- Acesso discreto à administração -->
+    <!-- Acesso discreto à administração -->
 <a
     href="admin.html"
     class="admin-secret-link"
@@ -667,6 +678,8 @@
 >
     ✦
 </a>
+
+    <script src="assets/js/feedback.js" defer></script>
 
 </body>
 </html>

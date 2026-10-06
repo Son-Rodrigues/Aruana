@@ -1,0 +1,763 @@
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+.feedback-section {
+    padding: 110px 8%;
+    background: #eee3d2;
+    color: #2d2028;
+}
+
+
+/* Cabeçalho */
+
+.feedback-header {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.feedback-header .section-label {
+    font-size: 11px;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    opacity: .65;
+}
+
+.feedback-header h2 {
+    margin: 15px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 5vw, 60px);
+
+    font-weight: 400;
+}
+
+.feedback-header p {
+    max-width: 500px;
+    margin: auto;
+
+    line-height: 1.8;
+
+    opacity: .75;
+}
+
+
+/* Container */
+
+.feedback-container {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        .8fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* Form */
+
+#feedbackForm {
+    background: rgba(255,255,255,.45);
+
+    padding: 40px;
+
+    border: 1px solid rgba(75,52,40,.15);
+
+    box-shadow:
+        0 20px 60px rgba(50,30,20,.06);
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 13px;
+
+    letter-spacing: .05em;
+}
+
+
+/* Inputs */
+
+.form-group input[type="text"],
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(75,52,40,.2);
+
+    background: rgba(255,255,255,.65);
+
+    color: #2d2028;
+
+    font-family: inherit;
+
+    outline: none;
+
+    transition: .3s;
+
+    box-sizing: border-box;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #7a5a68;
+
+    background: white;
+
+}
+
+
+/* Estrelas */
+
+.stars {
+    display: flex;
+    gap: 5px;
+}
+
+
+.stars button {
+
+    border: none;
+
+    background: none;
+
+    padding: 0;
+
+    font-size: 30px;
+
+    color: #c8b8a5;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        color .2s;
+}
+
+
+.stars button:hover {
+    transform: scale(1.15);
+}
+
+
+.stars button.active {
+    color: #8b6475;
+}
+
+
+/* Botão */
+
+.feedback-button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    background: #352332;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    letter-spacing: .08em;
+
+    transition: .3s;
+}
+
+
+.feedback-button:hover {
+    background: #513548;
+
+    transform: translateY(-2px);
+}
+
+
+/* Mensagem de sucesso */
+
+.feedback-success {
+
+    display: none;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #6c5362;
+
+    font-size: 14px;
+}
+
+
+/* Texto lateral */
+
+.feedback-message {
+
+    padding: 30px;
+}
+
+
+.moon-symbol {
+
+    font-size: 50px;
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #8b6475;
+}
+
+
+.feedback-message h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    font-weight: 400;
+
+    margin: 0 0 25px;
+}
+
+
+.feedback-message p {
+
+    line-height: 1.8;
+
+    max-width: 350px;
+
+    opacity: .7;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .feedback-section {
+        padding: 80px 6%;
+    }
+
+    .feedback-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    #feedbackForm {
+        padding: 25px;
+    }
+
+    .feedback-message {
+        text-align: center;
+    }
+
+    .feedback-message p {
+        margin: auto;
+    }
+
+}
+
+/* =====================================================
+   AVALIAÇÕES PUBLICADAS
+   CARROSSEL INFINITO
+===================================================== */
+
+.reviews {
+
+    width: 100%;
+
+    padding: 110px 0;
+
+    background: #f7f1e8;
+
+    color: #2d2028;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.reviews-header {
+
+    max-width: 700px;
+
+    margin: 0 auto 60px;
+
+    padding: 0 8%;
+
+    text-align: center;
+
+}
+
+
+.reviews-header span {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 11px;
+
+    letter-spacing: .35em;
+
+    text-transform: uppercase;
+
+    color: #8b6475;
+
+}
+
+
+.reviews-header h2 {
+
+    margin: 0 0 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        38px,
+        5vw,
+        58px
+    );
+
+    font-weight: 400;
+
+}
+
+
+.reviews-header p {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #765d67;
+
+}
+
+
+/* =====================================================
+   CONTAINER DO CARROSSEL
+===================================================== */
+
+.reviews-container {
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 10px 0 35px;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+/* =====================================================
+   FAIXA DO CARROSSEL
+===================================================== */
+
+.reviews-track {
+
+    display: flex;
+
+    width: max-content;
+
+    gap: 25px;
+
+    animation:
+        reviews-infinite
+        35s
+        linear
+        infinite;
+
+    will-change: transform;
+
+}
+
+
+/* =====================================================
+   MOVIMENTO INFINITO
+===================================================== */
+
+@keyframes reviews-infinite {
+
+    from {
+
+        transform:
+            translateX(0);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-50%);
+
+    }
+
+}
+
+
+/* =====================================================
+   PAUSAR AO PASSAR O MOUSE
+===================================================== */
+
+.reviews-container:hover
+.reviews-track {
+
+    animation-play-state:
+        paused;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.review-card {
+
+    flex: 0 0 360px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    padding: 32px 28px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .72
+        );
+
+    border:
+        1px solid
+        rgba(
+            75,
+            52,
+            40,
+            .12
+        );
+
+    box-shadow:
+        0 18px 50px
+        rgba(
+            50,
+            30,
+            20,
+            .06
+        );
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+/* =====================================================
+   HOVER DO CARD
+===================================================== */
+
+.review-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(
+            50,
+            30,
+            20,
+            .10
+        );
+
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+.review-stars {
+
+    margin-bottom: 20px;
+
+    color: #9a7585;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    line-height: 1;
+
+}
+
+
+/* =====================================================
+   MENSAGEM
+===================================================== */
+
+.review-message {
+
+    margin: 0 0 25px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #3d2b35;
+
+}
+
+
+/* =====================================================
+   AUTOR
+===================================================== */
+
+.review-author {
+
+    display: block;
+
+    font-family:
+        Montserrat,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: .08em;
+
+    color: #765d67;
+
+}
+
+
+/* =====================================================
+   ESTADO VAZIO
+===================================================== */
+
+.reviews-empty {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #765d67;
+
+}
+
+
+.reviews-empty span {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 38px;
+
+    color: #9a7585;
+
+}
+
+
+.reviews-empty p {
+
+    margin: 0;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   SOMBRA NAS LATERAIS
+===================================================== */
+
+.reviews-container::before,
+.reviews-container::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 90px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+.reviews-container::before {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            #f7f1e8,
+            transparent
+        );
+
+}
+
+
+.reviews-container::after {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            #f7f1e8,
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .reviews {
+
+        padding: 80px 0;
+
+    }
+
+
+    .reviews-header {
+
+        margin-bottom: 40px;
+
+        padding:
+            0 6%;
+
+    }
+
+
+    .reviews-track {
+
+        gap: 18px;
+
+        animation-duration: 30s;
+
+    }
+
+
+    .review-card {
+
+        flex: 0 0 290px;
+
+        padding: 26px 22px;
+
+    }
+
+
+    .review-message {
+
+        font-size: 16px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .reviews-container::before,
+    .reviews-container::after {
+
+        width: 45px;
+
+    }
+
+}
+
+
+/* =====================================================
+   TELAS MUITO PEQUENAS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .review-card {
+
+        flex: 0 0 275px;
+
+    }
+
+
+    .reviews-track {
+
+        gap: 15px;
+
+    }
+
+}
